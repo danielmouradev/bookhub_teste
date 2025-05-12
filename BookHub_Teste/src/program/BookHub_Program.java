@@ -11,26 +11,38 @@ public class BookHub_Program {
         Scanner sc = new Scanner(System.in);
         DateTimeFormatter brFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        System.out.print("Enter full name: ");
-        String name = sc.nextLine();
-        System.out.print("Enter email: ");
-        String email = sc.nextLine();
-        System.out.print("Enter password: ");
-        String password = sc.nextLine();
+        System.out.println("Welcome to BOOK HUB");
 
-        System.out.print("Enter data of birth: ");
-        String dataString = sc.nextLine();
-        LocalDate birth = LocalDate.parse(dataString, brFormatter);
+        System.out.println("1 - LOGIN");
+        System.out.println("2 - NEW USER");
+        System.out.println("3 - SEARCH BOOK");
+        System.out.println("4 - BORROW BOOKS");
+        System.out.println("5 - EXIT");
+
+        boolean cont = true;
+
+        while (cont) {
+            System.out.print("\nEnter to option: ");
+            int option = sc.nextInt();
+            sc.nextLine();
+
+            Usuario usuario = new Usuario();
+
+            switch (option) {
+                case 1:
+                    usuario.userLogin();
+                    break;
+
+                case 2:
+                    usuario.addUser(usuario);
+                    break;
 
 
-        System.out.print("Enter telephone number: ");
-        String telephone = sc.nextLine();
+                case 5:
+                    cont = false;
+                    break;
+            }
 
-        System.out.println("\n=========== User informations ===========\n");
-      Usuario usuario = new Usuario(name, email, password, birth, telephone);
-
-        System.out.println(usuario.userInformations());
-
-
+        }
     }
 }

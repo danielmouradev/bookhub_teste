@@ -1,4 +1,8 @@
 package model;
 
-public class UsuarioAdm {
+public class UsuarioAdm extends Usuario{
+
+    private String rg;
+
+
 }
