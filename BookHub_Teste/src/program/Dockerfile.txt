@@ -1,0 +1,10 @@
+FROM eclipse-temurin:17-jdk AS build
+WORKDIR /app
+COPY . .
+RUN javac Main.java
+
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
+COPY --from=build /app .
+EXPOSE 8080
+CMD ["java", "Main"]
